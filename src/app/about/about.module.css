@@ -1,0 +1,66 @@
+.container{
+	display: flex;
+	gap: 100px;
+	padding-bottom: 30px;
+}
+
+.textContainer{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.imgContainer{
+	flex: 1;
+	position: relative;
+}
+
+.subtitle{
+	color: var(--btn);
+	margin-top: 15px;
+}
+
+.title{
+	font-size: 60px;
+	line-height: 130%;
+}
+
+.desc{
+	font-size: 20px;
+	font-weight: 300;
+	text-align: justify;
+	margin: 12px auto;
+}
+
+.img{
+	object-fit: contain;
+}
+
+.boxes{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.box{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.box h1{
+	color: var(--btn);
+}
+
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.boxes{
+		flex-direction: column;
+		gap: 50px;
+	}
+}
