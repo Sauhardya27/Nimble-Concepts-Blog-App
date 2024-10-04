@@ -9,10 +9,10 @@ export async function middleware(request) {
   // Public paths that don't require authentication
   const publicPaths = ['/login', '/register'];
   if (publicPaths.includes(path)) {
-    // If user is already authenticated, redirect to home
+    // If user is already authenticated, redirect to home or admin page
     if (token) {
-      console.log("User is authenticated, redirecting to home.");
-      return NextResponse.redirect(new URL('/', request.url));
+      console.log("User is authenticated, redirecting to appropriate page.");
+      return NextResponse.redirect(new URL(token.isAdmin ? '/admin' : '/', request.url));
     }
     return NextResponse.next();
   }
@@ -20,6 +20,12 @@ export async function middleware(request) {
   // If no token, redirect to login
   if (!token) {
     return NextResponse.redirect(new URL('/login', request.url));
+  }
+
+  // If user is admin and not already on an admin page, redirect to admin
+  if (token.isAdmin && !path.startsWith('/admin')) {
+    console.log("Admin user detected, redirecting to admin page.");
+    return NextResponse.redirect(new URL('/admin', request.url));
   }
 
   const adminPaths = ['/admin'];
