@@ -11,9 +11,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/");
+      router.reload();
     }
-  }, [status, router]);
+  }, [status, router, session]);
 
   if (status === "loading") {
     return <div>Loading...</div>
