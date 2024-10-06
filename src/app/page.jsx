@@ -1,8 +1,26 @@
+"use client";
 import styles from "./home.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 const Home = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const refresh = searchParams.get('refresh');
+    if (refresh === 'true') {
+      // Remove the refresh parameter from the URL
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+      
+      // Reload the page
+      window.location.reload();
+    }
+  }, [searchParams]);
+
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
