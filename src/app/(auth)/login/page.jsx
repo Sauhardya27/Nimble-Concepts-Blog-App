@@ -3,7 +3,7 @@ import { useSession, signIn } from "next-auth/react"
 import LoginForm from "@/components/loginForm/loginForm";
 import styles from "./login.module.css"
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const { data: session, status } = useSession()
@@ -13,7 +13,7 @@ export default function LoginPage() {
     if (status === "authenticated") {
       router.push("/");
     }
-  }, [status, router]);
+  }, [status, router, session]);
 
   if (status === "loading") {
     return <div>Loading...</div>
