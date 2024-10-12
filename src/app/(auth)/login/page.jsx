@@ -4,6 +4,7 @@ import LoginForm from "@/components/loginForm/loginForm";
 import styles from "./login.module.css"
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
+import Loading from "@/app/loading";
 
 export default function LoginPage() {
   const { data: session, status } = useSession()
@@ -16,7 +17,7 @@ export default function LoginPage() {
   }, [status, router, session]);
 
   if (status === "loading") {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   if (status === "authenticated") {

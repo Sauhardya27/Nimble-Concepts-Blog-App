@@ -1,8 +1,11 @@
+import styles from './loading.module.css';
 
-const Loading = () => {
+export default function Loading() {
   return (
-	<div>Loading</div>
-  )
+    <div className={styles.container}>
+      <div className={styles.spinnerWrapper}>
+        <div className={styles.spinner}></div>
+      </div>
+    </div>
+  );
 }
-
-export default Loading

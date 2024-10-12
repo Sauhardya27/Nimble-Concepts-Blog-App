@@ -6,6 +6,7 @@ import AdminUsers from '@/components/adminUsers/adminUsers'
 import AdminUserForm from '@/components/adminUserForm/adminUserForm'
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth.config';
+import Loading from '../loading'
 
 const AdminPage = async () => {
   const session = await getServerSession(authOptions);
@@ -19,7 +20,7 @@ const AdminPage = async () => {
     <div className={styles.container}>
       <div className={styles.row}>
         <div className={styles.col}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading />}>
             <AdminPosts />
           </Suspense>
         </div>
@@ -29,7 +30,7 @@ const AdminPage = async () => {
       </div>
       <div className={styles.row}>
         <div className={styles.col}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading />}>
             <AdminUsers />
           </Suspense>
         </div>

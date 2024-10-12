@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+}
+
+.spinnerWrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.spinner {
+	animation: spin 1s linear infinite;
+	border-radius: 9999px;
+	height: 8rem;
+	width: 8rem;
+	border-top: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

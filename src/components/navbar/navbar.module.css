@@ -8,5 +8,14 @@
 .logo{
 	font-size: 30px;
 	font-weight: bold;
-	
+}
+
+.imgContainer{
+	width: 160px;
+	height: 80px;
+	position: relative;
+}
+
+.img{
+	object-fit: contain;
 }
