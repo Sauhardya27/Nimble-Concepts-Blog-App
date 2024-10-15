@@ -14,10 +14,14 @@ export default function LoginPage() {
     if (status === "authenticated") {
       router.push("/");
     }
-  }, [status, session]);
+  }, [status, router, session]);
 
   if (status === "loading") {
     return <Loading />
+  }
+
+  if (status === "authenticated") {
+    return null;
   }
 
   return (
