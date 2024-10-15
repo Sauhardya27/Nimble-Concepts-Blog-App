@@ -10,7 +10,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(""); // Clear any existing errors
+    setError("");
     const formData = new FormData(event.target);
     const result = await signIn("credentials", {
       username: formData.get("username"),
@@ -19,10 +19,8 @@ const LoginForm = () => {
     });
 
     if (result.error) {
-      // Set the error message to be displayed
       setError(result.error);
     } else {
-      // Redirect on success
       router.push("/");
       router.refresh();
     }

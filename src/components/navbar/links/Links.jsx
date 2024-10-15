@@ -3,7 +3,6 @@ import { useState } from "react";
 import styles from "./links.module.css";
 import NavLink from "../navLink/navLink";
 import Image from "next/image";
-//import { handleLogout } from "@/lib/action";
 import { signOut } from "next-auth/react";
 
 const links = [
