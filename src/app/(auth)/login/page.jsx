@@ -14,14 +14,10 @@ export default function LoginPage() {
     if (status === "authenticated") {
       router.push("/");
     }
-  }, [status, router, session]);
+  }, [status, session]);
 
   if (status === "loading") {
     return <Loading />
-  }
-
-  if (status === "authenticated") {
-    return null;  // We'll redirect in useEffect, so no need to render anything here
   }
 
   return (

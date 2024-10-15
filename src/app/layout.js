@@ -16,7 +16,7 @@ export const metadata = {
     default: "Nimble Concepts Homepage",
     template: "%s | Nimble Concepts"
   },
-  description: 'Next.js starter app',
+  description: 'Nimble Concepts Blog App',
 }
 
 export default function RootLayout({ children }) {

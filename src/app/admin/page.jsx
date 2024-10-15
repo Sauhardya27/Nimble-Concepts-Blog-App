@@ -8,6 +8,11 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth.config';
 import Loading from '../loading'
 
+export const metadata = {
+  title: 'Admin Page',
+  description: 'Admin Description',
+}
+
 const AdminPage = async () => {
   const session = await getServerSession(authOptions);
 

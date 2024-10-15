@@ -11,14 +11,17 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['avatars.githubusercontent.com'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: "images.pexels.com"
-      }
-    ]
-  }
-}
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        protocol: 'https',
+        hostname: "images.pexels.com",
+      },
+    ],
+  },
+};
 
 module.exports = nextConfig

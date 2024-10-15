@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react"
 import Image from "next/image"
 
 const Navbar = () => {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   return (
     <div className={styles.container}>
@@ -15,8 +15,10 @@ const Navbar = () => {
           <Image
             src="/logo.png"
             alt="Logo"
-            fill
+            width={100}
+            height={50}
             className={styles.img}
+            priority
           />
         </div>
       </Link>

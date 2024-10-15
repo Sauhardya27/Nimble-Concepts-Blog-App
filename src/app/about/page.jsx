@@ -6,7 +6,6 @@ export const metadata = {
   description: 'About Description',
 }
 
-
 const AboutPage = () => {
   return (
     <div className={styles.container}>
