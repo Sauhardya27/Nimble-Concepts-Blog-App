@@ -4,6 +4,7 @@ import Links from "./links/Links"
 import styles from "./navbar.module.css"
 import { useSession } from "next-auth/react"
 import Image from "next/image"
+import logoImage from '@/public/logo.png'
 
 const Navbar = () => {
   const { data: session } = useSession()
@@ -13,7 +14,7 @@ const Navbar = () => {
       <Link href="/" className={styles.logo}>
         <div className={styles.imgContainer}>
           <Image
-            src="/logo.png"
+            src={logoImage}
             alt="Logo"
             width={100}
             height={50}
