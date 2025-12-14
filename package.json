@@ -1,5 +1,5 @@
 {
-  "name": "next14starter",
+  "name": "nimble-concepts",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,10 +11,10 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "install": "^0.13.0",
-    "mongoose": "^8.0.0",
-    "next": "^14.2.13",
+    "mongoose": "^9.0.1",
+    "next": "^14.2.35",
     "next-auth": "^4.24.7",
-    "npm": "^10.5.0",
+    "npm": "^11.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
