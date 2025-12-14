@@ -21,8 +21,7 @@ const LoginForm = () => {
     if (result.error) {
       setError(result.error);
     } else {
-      router.push("/");
-      router.refresh();
+      window.location.href = "/";
     }
   };
 

@@ -1,35 +1,38 @@
-import { NextResponse } from 'next/server';
-import { getToken } from 'next-auth/jwt';
+import { NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
 
 export async function middleware(request) {
-  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
+  const token = await getToken({
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET,
+  });
+
   const path = request.nextUrl.pathname;
 
-  const publicPaths = ['/login', '/register'];
-  if (publicPaths.includes(path)) {
+  const publicPaths = ["/login", "/register"];
+  if (publicPaths.some((p) => path.startsWith(p))) {
     if (token) {
-      console.log("User is authenticated, redirecting to home.");
-      return NextResponse.redirect(new URL('/', request.url));
+      return NextResponse.redirect(new URL("/", request.url));
     }
-    return NextResponse.next();
+
+    const res = NextResponse.next();
+    res.headers.set("Cache-Control", "no-store");
+    return res;
   }
 
   if (!token) {
-    return NextResponse.redirect(new URL('/login', request.url));
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  const adminPaths = ['/admin'];
-  if (adminPaths.includes(path)) {
-    if (!token.isAdmin) {
-      return NextResponse.redirect(new URL('/', request.url));
-    }
+  if (path.startsWith("/admin") && !token.isAdmin) {
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
-  return NextResponse.next();
+  const res = NextResponse.next();
+  res.headers.set("Cache-Control", "no-store");
+  return res;
 }
 
 export const config = {
-  matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

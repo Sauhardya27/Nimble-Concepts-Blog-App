@@ -53,6 +53,8 @@ export const authOptions = {
         token.email = user.email;
         token.isAdmin = user.isAdmin || false;
       }
+      token.iat = Date.now();
+
       return token;
     },
     async session({ session, token }) {
