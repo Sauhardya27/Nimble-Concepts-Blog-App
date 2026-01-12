@@ -1,11 +1,12 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
 import { addUser } from "@/lib/action";
 
 const AdminUserForm = () => {
   const formRef = useRef(null);
-  const [state, formAction, isPending] = useActionState(addUser, undefined);
+  const [state, formAction, isPending] = useFormState(addUser, undefined);
 
   useEffect(() => {
     if (state?.success) {

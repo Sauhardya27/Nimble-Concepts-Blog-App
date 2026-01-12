@@ -3,7 +3,7 @@ import { connectToDb } from "@/lib/utils";
 import { NextRequest, NextResponse } from "next/server";
 import { IPost } from "@/lib/models";
 
-export const GET = async (request: NextRequest) => {
+export const GET = async (_request: NextRequest) => {
   try {
     await connectToDb();
 	

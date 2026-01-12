@@ -26,7 +26,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // Use type assertion or extended interface for custom properties like isAdmin
   const isAdmin = token.isAdmin as boolean | undefined;
 
   if (path.startsWith("/admin") && !isAdmin) {

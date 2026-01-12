@@ -10,7 +10,7 @@ type ActionState = {
     success?: boolean;
 } | undefined;
 
-export const addPost = async (prevState: ActionState, formData: FormData) => {
+export const addPost = async (_prevState: ActionState, formData: FormData) => {
     const { title, desc, slug, userId, img } = Object.fromEntries(formData);
 
     try {
@@ -47,7 +47,7 @@ export const deletePost = async (formData: FormData) => {
     }
 };
 
-export const addUser = async (prevState: ActionState, formData: FormData) => {
+export const addUser = async (_prevState: ActionState, formData: FormData) => {
     const { username, email, password, img, isAdmin } = Object.fromEntries(formData);
     const isAdminBoolean = isAdmin === 'true';
 
@@ -88,7 +88,7 @@ export const deleteUser = async (formData: FormData) => {
     }
 };
 
-export const register = async (previousState: ActionState, formData: FormData) => {
+export const register = async (_previousState: ActionState, formData: FormData) => {
     const { username, email, password, img, passwordRepeat } = Object.fromEntries(formData);
 
     if (password !== passwordRepeat) {

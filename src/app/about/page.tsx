@@ -15,10 +15,7 @@ const AboutPage = () => {
           We create digital ideas that are bigger, bolder, braver and better.
         </h1>
         <p className="text-[20px] font-light text-justify my-3">
-          We create digital ideas that are bigger, bolder, braver and better. We
-          believe in good ideas flexibility and precission We're world's Our
-          Special Team best consulting & finance solution provider. Wide range
-          of web and software development services.
+          We create digital ideas that are bigger, bolder, braver, and better. We believe in the flexibility and precision of great ideas. We are a world-class consulting and finance solutions provider, backed by a specialized team delivering a wide range of web and software development services.
         </p>
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-12.5 md:gap-0">

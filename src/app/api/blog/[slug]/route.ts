@@ -10,7 +10,7 @@ interface RouteParams {
 }
 
 export const GET = async (
-  request: NextRequest, 
+  _request: NextRequest, 
   { params }: RouteParams
 ) => {
   const { slug } = params;
@@ -34,7 +34,7 @@ export const GET = async (
 };
 
 export const DELETE = async (
-  request: NextRequest, 
+  _request: NextRequest, 
   { params }: RouteParams
 ) => {
   const { slug } = params;
