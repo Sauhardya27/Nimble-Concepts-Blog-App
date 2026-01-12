@@ -44,7 +44,6 @@ export const deletePost = async (formData: FormData) => {
         revalidatePath("/admin");
     } catch (err) {
         console.log(err);
-        return { error: "Something went wrong!" };
     }
 };
 
@@ -86,7 +85,6 @@ export const deleteUser = async (formData: FormData) => {
         revalidatePath("/admin");
     } catch (err) {
         console.log(err);
-        return { error: "Something went wrong!" };
     }
 };
 

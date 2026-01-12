@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import AdminPosts from '@/components/adminPosts/AdminPosts';
-import AdminPostForm from '@/components/adminPostForm/AdminPostForm';
+import AdminPostForm from '@/components/adminPosts/AdminPostForm';
 import AdminUsers from '@/components/adminUsers/AdminUsers';
-import AdminUserForm from '@/components/adminUserForm/AdminUserForm';
+import AdminUserForm from '@/components/adminUsers/AdminUserForm';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth.config';
 import Loading from '../loading';

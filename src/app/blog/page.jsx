@@ -1,5 +1,5 @@
 import styles from "./blog.module.css"
-import PostCard from "@/components/postCard/postCard"
+import PostCard from "@/components/PostCard";
 import { getPosts } from "@/lib/data";
 
 export const metadata = {
