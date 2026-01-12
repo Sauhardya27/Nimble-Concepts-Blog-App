@@ -36,9 +36,8 @@ export const authOptions: NextAuthOptions = {
           );
           if (!isPasswordCorrect) throw new Error("Invalid password");
 
-          // FIX: Manually return an object that matches the 'User' type
           return {
-            id: user._id.toString(), // NextAuth needs 'id' as a string
+            id: user._id.toString(),
             username: user.username,
             email: user.email,
             img: user.img,
@@ -51,9 +50,32 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async signIn({ user, account, profile }) {
+      if (account?.provider === "github") {
+        try {
+          await connectToDb();
+          const dbUser = await User.findOne({ email: user.email });
+
+          if (!dbUser) {
+            const newUser = new User({
+              username: (profile as any).login || user.name,
+              email: user.email,
+              img: user.image,
+              isAdmin: false,
+              password: await bcrypt.hash(Math.random().toString(36).slice(-8), 10),
+            });
+            await newUser.save();
+          }
+        } catch (err) {
+          console.error("GitHub sign-in error:", err);
+          return false;
+        }
+      }
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) {
-        token.id = (user as any)._id;
+        token.id = user.id;
         token.isAdmin = (user as any).isAdmin;
       }
       return token;

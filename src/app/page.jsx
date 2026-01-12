@@ -1,29 +1,43 @@
-import styles from "./home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
 const Home = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>Empowering Creativity with Thoughtful Solutions</h1>
-        <p className={styles.desc}>
-          Unleash your creativity with Nimble Concepts, where fresh ideas spark transformation. Experience the power of innovation and watch your vision come to life.
+    <div className="flex flex-col lg:flex-row gap-25 pb-7.5 lg:text-left text-center">
+    
+      <div className="flex-1 flex flex-col gap-12.5">
+        <h1 className="text-[64px] lg:text-[80px] leading-[120%] font-bold">
+          Empowering Creativity with Thoughtful Solutions
+        </h1>
+        <p className="text-[20px] text-justify -my-3.75">
+          Unleash your creativity with Nimble Concepts, where fresh ideas spark transformation. 
+          Experience the power of innovation and watch your vision come to life.
         </p>
-        <div className={styles.buttons}>
+        <div className="flex gap-12.5 lg:justify-start justify-center">
           <Link href="/about">
-            <button className={`${styles.button} ${styles.learnMoreButton}`}>Learn More</button>
+            <button className="p-5 min-w-30 cursor-pointer border-none rounded-[20px] text-base font-semibold bg-(--btn) text-(--text)">
+              Learn More
+            </button>
           </Link>
           <Link href="/contact">
-            <button className={`${styles.button} ${styles.contactButton}`}>Contact</button>
+            <button className="p-5 min-w-30 cursor-pointer border-none rounded-[20px] text-base font-semibold bg-(--text) text-(--bg)">
+              Contact
+            </button>
           </Link>
         </div>
-        <div className={styles.brands}>
-          <Image src="/brands.png" alt="" fill className={styles.brandImg} />
+        <div className="relative w-full md:w-175 h-17.5 -mt-12.5 cursor-pointer">
+          <Image src="/brands.png" alt="brands" fill className="object-contain" />
         </div>
       </div>
-      <div className={styles.imgContainer}>
-        <Image src="/hero.gif" alt="" fill className={styles.heroImg} unoptimized />
+      
+      <div className="flex-1 relative lg:bottom-7 min-h-75 md:min-h-125">
+        <Image 
+          src="/hero.gif" 
+          alt="hero" 
+          fill 
+          className="object-contain" 
+          unoptimized 
+        />
       </div>
     </div>
   );
