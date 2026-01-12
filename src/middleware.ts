@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-export async function middleware(request) {
+export async function middleware(request: NextRequest) {
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
@@ -10,6 +11,7 @@ export async function middleware(request) {
   const path = request.nextUrl.pathname;
 
   const publicPaths = ["/login", "/register"];
+  
   if (publicPaths.some((p) => path.startsWith(p))) {
     if (token) {
       return NextResponse.redirect(new URL("/", request.url));
@@ -24,7 +26,10 @@ export async function middleware(request) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  if (path.startsWith("/admin") && !token.isAdmin) {
+  // Use type assertion or extended interface for custom properties like isAdmin
+  const isAdmin = token.isAdmin as boolean | undefined;
+
+  if (path.startsWith("/admin") && !isAdmin) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
