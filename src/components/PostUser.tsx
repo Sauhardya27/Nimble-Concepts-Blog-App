@@ -9,7 +9,7 @@ const PostUser = async ({ userId }: PostUserProps) => {
   const user = await getUser(userId);
 
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-start gap-5">
       <Image
         src={user?.img ? user.img : "/noavatar.png"}
         alt="Author Avatar"
