@@ -9,17 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
     "bcryptjs": "^2.4.3",
-    "install": "^0.13.0",
     "mongoose": "^9.0.1",
     "next": "^14.2.35",
-    "next-auth": "^4.24.7",
-    "npm": "^11.7.0",
+    "next-auth": "^4.24.11",
+    "postcss": "^8.5.6",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^25.0.6",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-next": "14.0.4",
+    "typescript": "^5.9.3"
   }
 }
